@@ -1,0 +1,41 @@
+{% extends 'layouts/main.html' %} {% block title %}New Movie{% endblock %} {% block content %}
+<div class="container">
+    <h2 class="text-center my-4">Add New Movie</h2>
+    <form action="/movies/create" method="POST">
+        <div class="form-group row text-center">
+            <label for="movie-name" class="offset-2 col-2 col-form-label font-weight-bold">Title</label>
+            <input type="text" id="movie-name" name="movie-name" class="form-control col-5">
+        </div>
+        <div class="form-group row text-center">
+            <label for="movie-date" class="offset-2 col-2 col-form-label font-weight-bold">Releasing Date</label>
+            <input type="date" id="movie-date" name="movie-date" class="form-control col-5">
+        </div>
+        <div class="form-group row text-center">
+            <label for="movie-city" class="offset-2 col-2 col-form-label font-weight-bold">City</label>
+            <input type="text" id="movie-city" name="movie-city" class="form-control col-5">
+        </div>
+        <div class="form-group row text-center">
+            <label for="movie-genre" class="offset-2 col-2 col-form-label font-weight-bold">Genre</label>
+            <input type="text" id="movie-genre" name="movie-genre" class="form-control col-5">
+        </div>
+        <div class="form-group row text-center">
+            <label for="movie-image" class="offset-2 col-2 col-form-label font-weight-bold">Image Link</label>
+            <input type="text" id="movie-image" name="movie-image" class="form-control col-5">
+        </div>
+        <div class="form-group row text-center">
+            <label for="movie-actor" class="offset-2 col-2 col-form-label font-weight-bold">Actors</label>
+            <select name="movie-actor" id="movie-actor" data-placeholder="Choose The Actors" class="form-control col-5" multiple>
+                {% for actor in data %}
+                <option value="{{actor.id}}">{{actor.name}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group text-center">
+            <input type="submit" id="movie-success" name="movie-success" class="btn btn-success d-inline-block mr-4">
+            <a href="/movies" class="btn btn-danger d-inline-block">Cancel</a>
+        </div>
+        <script>
+        </script>
+    </form>
+</div>
+{% endblock %}
