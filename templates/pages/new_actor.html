@@ -1,0 +1,42 @@
+{% extends 'layouts/main.html' %} {% block title %}New Actor{% endblock %} {% block content %}
+<div class="container">
+    <h2 class="text-center my-4">Add New Actor</h2>
+    <form action="/actors/create" method="POST">
+        <div class="form-group row text-center">
+            <label for="actor-name" class="offset-2 col-2 col-form-label font-weight-bold">Name</label>
+            <input type="text" id="actor-name" name="actor-name" class="form-control col-5">
+        </div>
+        <div class="form-group row text-center">
+            <label for="actor-age" class="offset-2 col-2 col-form-label font-weight-bold">Age</label>
+            <input type="number" id="actor-age" name="actor-age" class="form-control col-5">
+        </div>
+        <div class="form-group row text-center">
+            <label for="actor-gender" class="offset-2 col-2 col-form-label font-weight-bold">Gender</label>
+            <select id="actor-gender" name="actor-gender" class="form-control col-5">
+                <option value="1">Male</option>
+                <option value="2">Female</option>
+            </select>
+        </div>
+        <div class="form-group row text-center">
+            <label for="actor-phone" class="offset-2 col-2 col-form-label font-weight-bold">Phone</label>
+            <input type="number" id="actor-phone" name="actor-phone" class="form-control col-5">
+        </div>
+        <div class="form-group row text-center">
+            <label for="actor-genre" class="offset-2 col-2 col-form-label font-weight-bold">Genre</label>
+            <input type="text" id="actor-genre" name="actor-genre" class="form-control col-5">
+        </div>
+        <div class="form-group row text-center">
+            <label for="actor-city" class="offset-2 col-2 col-form-label font-weight-bold">City</label>
+            <input type="text" id="actor-city" name="actor-city" class="form-control col-5">
+        </div>
+        <div class="form-group row text-center">
+            <label for="actor-image" class="offset-2 col-2 col-form-label font-weight-bold">Image Link</label>
+            <input type="text" id="actor-image" name="actor-image" class="form-control col-5">
+        </div>
+        <div class="form-group text-center">
+            <input type="submit" id="actor-success" name="actor-success" class="btn btn-success">
+            <a href="/actors" class="btn btn-danger ml-4">Cancel</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

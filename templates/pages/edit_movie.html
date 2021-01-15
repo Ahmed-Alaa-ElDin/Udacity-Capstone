@@ -1,0 +1,65 @@
+{% extends 'layouts/main.html' %} {% block title %}Edit Movie{% endblock %} {% block content %}
+<div class="container">
+    <h2 class="text-center my-4">Edit Movie</h2>
+
+    <form action="/movies/edit" method="POST">
+        <input type="hidden" name="movie-id" id="movie-id" value="{{data.id}}">
+        <div class="form-group row text-center">
+            <label for="movie-name" class="offset-2 col-2 col-form-label font-weight-bold">Title</label>
+            <input type="text" id="movie-name" name="movie-name" class="form-control col-5" value="{{data.title}}">
+        </div>
+        <div class="form-group row text-center">
+            <label for="movie-date" class="offset-2 col-2 col-form-label font-weight-bold">Releasing Date</label>
+            <input type="date" id="movie-date" name="movie-date" class="form-control col-5" value="{{data.release_date}}">
+        </div>
+        <div class="form-group row text-center">
+            <label for="movie-city" class="offset-2 col-2 col-form-label font-weight-bold">City</label>
+            <input type="text" id="movie-city" name="movie-city" class="form-control col-5" value="{{data.city}}">
+        </div>
+        <div class="form-group row text-center">
+            <label for="movie-genre" class="offset-2 col-2 col-form-label font-weight-bold">Genre</label>
+            <input type="text" id="movie-genre" name="movie-genre" class="form-control col-5" value="{{data.genre}}">
+        </div>
+        <div class="form-group row text-center">
+            <label for="movie-image" class="offset-2 col-2 col-form-label font-weight-bold">Image Link</label>
+            <input type="text" id="movie-image" name="movie-image" class="form-control col-5" value="{{data.image_link}}">
+        </div>
+        <div class="form-group text-center">
+            <button type="button" id="movie-success" name="movie-success" class="btn btn-success d-inline-block mr-4"> Submit </button>
+            <a href="/movies" class="btn btn-danger d-inline-block">Cancel</a>
+        </div>
+    </form>
+
+    <script type="text/javascript">
+        var deleteButtons = document.getElementById("movie-success")
+        deleteButtons.onclick = function() {
+            var movie_id = document.getElementById("movie-id").value
+            var movie_name = document.getElementById("movie-name").value
+            var movie_date = document.getElementById("movie-date").value
+            var movie_city = document.getElementById("movie-city").value
+            var movie_genre = document.getElementById("movie-genre").value
+            var movie_image = document.getElementById("movie-image").value
+
+
+            fetch('/movies/edit/' + movie_id, {
+                    method: 'PATCH',
+                    body: JSON.stringify({
+                        'id': movie_id,
+                        'title': movie_name,
+                        'release_date': movie_date,
+                        'city': movie_city,
+                        'genra': movie_genre,
+                        'image_link': movie_image
+                    }),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(function() {
+                    alert("Movie Updated successfully")
+                    window.location.replace("/movies");
+                })
+        }
+    </script>
+</div>
+{% endblock %}

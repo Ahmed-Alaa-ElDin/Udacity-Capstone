@@ -1,0 +1,81 @@
+{% extends 'layouts/main.html' %} {% block title %}Edit Actor{% endblock %} {% block content %}
+<div class="container">
+    <h2 class="text-center my-4">Edit Actor</h2>
+
+    <form action="/actors/edit" method="POST">
+        <input type="hidden" name="actor-id" id="actor-id" value="{{data.id}}">
+        <div class="form-group row text-center">
+            <label for="actor-name" class="offset-2 col-2 col-form-label font-weight-bold">Name</label>
+            <input type="text" id="actor-name" name="actor-name" class="form-control col-5" value="{{data.name}}">
+        </div>
+        <div class="form-group row text-center">
+            <label for="actor-age" class="offset-2 col-2 col-form-label font-weight-bold">Age</label>
+            <input type="number" id="actor-age" name="actor-age" class="form-control col-5" value="{{data.age}}">
+        </div>
+        <div class="form-group row text-center">
+            <label for="actor-gender" class="offset-2 col-2 col-form-label font-weight-bold">Gender</label>
+            <select id="actor-gender" name="actor-gender" class="form-control col-5">
+                <option value="1" {% if data.gender == 1%} selected {% endif %}>Male</option>
+                <option value="2" {% if data.gender == 2%} selected {% endif %}>Female</option>
+            </select>
+        </div>
+        <div class="form-group row text-center">
+            <label for="actor-phone" class="offset-2 col-2 col-form-label font-weight-bold">Phone</label>
+            <input type="number" id="actor-phone" name="actor-phone" class="form-control col-5" value="{{data.phone}}">
+        </div>
+        <div class="form-group row text-center">
+            <label for="actor-genre" class="offset-2 col-2 col-form-label font-weight-bold">Genre</label>
+            <input type="text" id="actor-genre" name="actor-genre" class="form-control col-5" value="{{data.genre}}">
+        </div>
+        <div class="form-group row text-center">
+            <label for="actor-city" class="offset-2 col-2 col-form-label font-weight-bold">City</label>
+            <input type="text" id="actor-city" name="actor-city" class="form-control col-5" value="{{data.city}}">
+        </div>
+        <div class="form-group row text-center">
+            <label for="actor-image" class="offset-2 col-2 col-form-label font-weight-bold">Image Link</label>
+            <input type="text" id="actor-image" name="actor-image" class="form-control col-5" value="{{data.image_link}}">
+        </div>
+        <div class="form-group text-center">
+            <button type="button" id="actor-success" name="actor-success" class="btn btn-success"> Submit </button>
+            <a href="/actors" class="btn btn-danger ml-4">Cancel</a>
+        </div>
+    </form>
+
+    <script type="text/javascript">
+        var successButtons = document.getElementById("actor-success")
+        successButtons.onclick = function() {
+            var actor_id = document.getElementById("actor-id").value
+            var actor_name = document.getElementById("actor-name").value
+            var actor_age = document.getElementById("actor-age").value
+            var actor_gender = document.getElementById("actor-gender").value
+            var actor_phone = document.getElementById("actor-phone").value
+            var actor_genre = document.getElementById("actor-genre").value
+            var actor_city = document.getElementById("actor-city").value
+            var actor_image = document.getElementById("actor-image").value
+
+
+            fetch('/actors/edit/' + actor_id, {
+                    method: 'PATCH',
+                    body: JSON.stringify({
+                        'id': actor_id,
+                        'name': actor_name,
+                        'age': actor_age,
+                        'gender': actor_gender,
+                        'phone': actor_phone,
+                        'genre': actor_genre,
+                        'city': actor_city,
+                        'image': actor_image
+                    }),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(function() {
+                    alert("Actor Updated successfully")
+                    window.location.replace("/actors");
+                })
+        }
+    </script>
+</div>
+
+{% endblock %}
