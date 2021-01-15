@@ -1,7 +1,7 @@
 {% extends 'layouts/main.html' %} {% block title %}Actors Page{% endblock %} {% block content %}
 <div class="container">
     <h2 class="text-center my-4">Welcome to <strong class="text-danger">Actors</strong> Page</h2>
-    <a href="/actors/create" class="btn btn-success font-weight-bold d-block ml-auto mr-auto my-4 w-25">Add New Actor</a>
+    <a id="createActorButton" class="btn btn-success font-weight-bold d-block ml-auto mr-auto my-4 w-25">Add New Actor</a>
     <div class="row">
         {% for actor in data %}
         <div class="col-4 mb-3">
@@ -20,38 +20,14 @@
                     <li class="list-group-item"><strong> City:</strong> {{actor.city}}</li>
                 </ul>
                 <div class="card-footer">
-                    <form action="/actors/edit/{{actor.id}}" method="POST" class="d-inline-block mr-4">
-                        <input type="submit" class="btn btn-warning actor-edit" value="Edit">
+                    <form action="/actors/edit/{{actor.id}}" method="POST" class="d-inline-block mr-4" class="gotoEditActor">
+                        <input type="submit" class="editActorButton btn btn-warning actor-edit" value="Edit">
                     </form>
-                    <button type="button" class="btn btn-danger actor-delete" data-id="{{actor.id}}">Delete</button>
+                    <button type="button" class="deleteActorButton btn btn-danger actor-delete" data-id="{{actor.id}}">Delete</button>
                 </div>
             </div>
         </div>
         {% endfor %}
     </div>
-    <script type="text/javascript">
-        var deleteButtons = document.getElementsByClassName("actor-delete")
-        for (var i = 0; i < deleteButtons.length; i++) {
-            deleteButtons[i].onclick = function() {
-                var actor_id = parseInt(this.dataset.id)
-                if (confirm("Are You sure you want to delete this actor ??")) {
-
-                    fetch('/actors/delete/' + actor_id, {
-                            method: 'DELETE',
-                            body: JSON.stringify({
-                                'id': actor_id
-                            }),
-                            headers: {
-                                'Content-Type': 'application/json'
-                            }
-                        })
-                        .then(function() {
-                            alert("Actor deleted successfully")
-                            window.location.replace("/actors");
-                        })
-                }
-            }
-        }
-    </script>
 </div>
 {% endblock %}

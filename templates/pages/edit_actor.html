@@ -36,9 +36,46 @@
             <input type="text" id="actor-image" name="actor-image" class="form-control col-5" value="{{data.image_link}}">
         </div>
         <div class="form-group text-center">
-            <input type="submit" id="actor-success" name="actor-success" class="btn btn-success">
+            <button type="button" id="actor-success" name="actor-success" class="btn btn-success"> Submit </button>
             <a href="/actors" class="btn btn-danger ml-4">Cancel</a>
         </div>
     </form>
+
+    <script type="text/javascript">
+        var successButtons = document.getElementById("actor-success")
+        successButtons.onclick = function() {
+            var actor_id = document.getElementById("actor-id").value
+            var actor_name = document.getElementById("actor-name").value
+            var actor_age = document.getElementById("actor-age").value
+            var actor_gender = document.getElementById("actor-gender").value
+            var actor_phone = document.getElementById("actor-phone").value
+            var actor_genre = document.getElementById("actor-genre").value
+            var actor_city = document.getElementById("actor-city").value
+            var actor_image = document.getElementById("actor-image").value
+
+
+            fetch('/actors/edit/' + actor_id, {
+                    method: 'PATCH',
+                    body: JSON.stringify({
+                        'id': actor_id,
+                        'name': actor_name,
+                        'age': actor_age,
+                        'gender': actor_gender,
+                        'phone': actor_phone,
+                        'genre': actor_genre,
+                        'city': actor_city,
+                        'image': actor_image
+                    }),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(function() {
+                    alert("Actor Updated successfully")
+                    window.location.replace("/actors");
+                })
+        }
+    </script>
 </div>
+
 {% endblock %}

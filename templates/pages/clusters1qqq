@@ -1,8 +1,0 @@
-[0;1;32m●[0m postgresql.service - PostgreSQL RDBMS
-     Loaded: loaded (/lib/systemd/system/postgresql.service; enabled; vendor preset: enabled)
-     Active: [0;1;32mactive (exited)[0m since Fri 2020-12-25 06:13:09 EET; 2h 12min ago
-    Process: 1125 ExecStart=/bin/true (code=exited, status=0/SUCCESS)
-   Main PID: 1125 (code=exited, status=0/SUCCESS)
-
-ديس 25 06:13:09 ahmed-Lenovo-G580 systemd[1]: Starting PostgreSQL RDBMS...
-ديس 25 06:13:09 ahmed-Lenovo-G580 systemd[1]: Finished PostgreSQL RDBMS.

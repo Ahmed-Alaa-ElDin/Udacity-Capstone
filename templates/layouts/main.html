@@ -11,11 +11,6 @@
     <!-- /meta -->
 
     <!-- styles -->
-    <!-- <link type="text/css" rel="stylesheet" href="/static/css/bootstrap.min.css"> -->
-    <!-- <link type="text/css" rel="stylesheet" href="/static/css/layout.main.css" /> -->
-    <!-- <link type="text/css" rel="stylesheet" href="/static/css/main.css" /> -->
-    <!-- <link type="text/css" rel="stylesheet" href="/static/css/main.responsive.css" /> -->
-    <!-- <link type="text/css" rel="stylesheet" href="/static/css/main.quickfix.css" /> -->
     <link type="text/css" rel="stylesheet" href="/static/css/bootstrap.min.css">
     <link type="text/css" rel="stylesheet" href="/static/css/chosen.min.css">
     <link type="text/css" rel="stylesheet" href="/static/css/style.css">
@@ -26,11 +21,9 @@
     <!-- /favicons -->
 
     <!-- scripts -->
-    <!-- <script src="https://kit.fontawesome.com/af77674fe5.js"></script>
-    <script src="/static/js/libs/modernizr-2.8.2.min.js"></script>
-    <script src="/static/js/libs/moment.min.js"></script>
-    <script type="text/javascript" src="/static/js/script.js" defer></script> -->
-    <!--[if lt IE 9]><script src="/static/js/libs/respond-1.4.2.min.js"></script><![endif]-->
+    <script src="/static/js/jquery-3.5.1.min.js"></script>
+    <script src="/static/js/jwt-decode.js"></script>
+    <script src="/static/js/auth.js"></script>
     <!-- /scripts -->
 </head>
 
@@ -50,18 +43,21 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item {% if request.endpoint == 'show_movies' or request.endpoint == 'create_movie' %} active {% endif %}">
-                        <a class="nav-link text-center" href="/movies">Movies</a>
+                        <a class="nav-link text-center" href="/movies" id="getMovieButton">Movies</a>
                     </li>
                     <li class="nav-item {% if request.endpoint=='show_actors' or request.endpoint == 'create_actor' %} active {% endif %}">
-                        <a class="nav-link text-center" href="/actors">Actors</a>
+                        <a class="nav-link text-center" href="/actors" id="getActorButton">Actors</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav my-2 my-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link text-center" href="#">Sign Up</a>
+                        <a class="nav-link text-center" id="logInButton" href="https://dev-7go1be7i.us.auth0.com/authorize?audience=casting&scope=SCOPE&response_type=token&client_id=k6nd4UUtj9zjhZlX2yWZi7HnCqec6eu6&redirect_uri=http://localhost:5000/">Sign Up</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-center" href="#">Log In</a>
+                        <a class="nav-link text-center" id="signUpButton" href="https://dev-7go1be7i.us.auth0.com/authorize?audience=casting&scope=SCOPE&response_type=token&client_id=k6nd4UUtj9zjhZlX2yWZi7HnCqec6eu6&redirect_uri=http://localhost:5000/">Log In</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-center d-none" style="cursor: pointer;" id="logOutButton">Log Out</a>
                     </li>
                 </ul>
             </div>
@@ -88,13 +84,6 @@
         </div>
     </div>
 
-    <!-- <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script>
-        window.jQuery || document.write('<script type="text/javascript" src="/static/js/libs/jquery-1.11.1.min.js"><\/script>')
-    </script>
-    <script type="text/javascript" src="/static/js/libs/bootstrap-3.1.1.min.js" defer></script>
-    <script type="text/javascript" src="/static/js/plugins.js" defer></script> -->
-    <script src="/static/js/jquery-3.5.1.min.js"></script>
     <script src="/static/js/bootstrap.min.js"></script>
     <script src="/static/js/chosen.jquery.min.js"></script>
     <script src="/static/js/script.js"></script>
