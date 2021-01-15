@@ -1,5 +1,4 @@
 alembic==1.4.3
-apturl==0.5.2
 astroid==2.4.2
 attrs==20.3.0
 awscli==1.18.195
