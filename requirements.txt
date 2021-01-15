@@ -29,7 +29,6 @@ psycopg2
 psycopg2-binary
 py
 PyJWT
-python-apt
 python-dateutil
 python-debian
 python-editor
