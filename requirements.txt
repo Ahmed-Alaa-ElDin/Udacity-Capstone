@@ -36,5 +36,4 @@ python-jose
 requests
 six
 SQLAlchemy
-ufw
 Werkzeug
