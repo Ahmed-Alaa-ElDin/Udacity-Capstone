@@ -13,12 +13,11 @@ DATABASE_NAME = 'casting'
 
 SQLALCHEMY_DATABASE_URI = f'{DATABASE_TYPE}://{DATABASE_USER}:{DATABASE_PASS}@{DATABASE_SERVER}:{DATABASE_PORT}/{DATABASE_NAME}'
 
-AUTH = {
-    'DOMAIN' : 'dev-7go1be7i.us.auth0.com',
-    'ALG' : ['RS256'],
-    'API_AUDIENCE' : 'casting',
-    'CLIENT_ID' : 'k6nd4UUtj9zjhZlX2yWZi7HnCqec6eu6' 
-}
+DOMAIN = 'dev-7go1be7i.us.auth0.com'
+ALG = ['RS256']
+API_AUDIENCE = 'casting'
+CLIENT_ID = 'k6nd4UUtj9zjhZlX2yWZi7HnCqec6eu6' 
+
 
 tokens = {
     "executive_producer" : "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkdqdHBLZVpXUDZBd25zZGo0U0VPRCJ9.eyJpc3MiOiJodHRwczovL2Rldi03Z28xYmU3aS51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWZhYzQ1YTAyODg3MzQwMDc1ZjAxOGFkIiwiYXVkIjoiY2FzdGluZyIsImlhdCI6MTYxMDY2NTk2NywiZXhwIjoxNjEwNzUyMzY3LCJhenAiOiJrNm5kNFVVdGo5empoWmxYMnlXWmk3SG5DcWVjNmV1NiIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOmFjdG9yIiwiZGVsZXRlOm1vdmllIiwiZ2V0OmFjdG9ycyIsImdldDptb3ZpZXMiLCJwYXRjaDphY3RvciIsInBhdGNoOm1vdmllIiwicG9zdDphY3RvciIsInBvc3Q6bW92aWUiXX0.lslYM5KJfLyQM_DJHBTr9FHO1uaqZc4UUykHb_lTVNqDzeT8NN7KqVdSnEY9yBLadAjk30GeeGbo3LWCZHTae2eKhzlxacof92UdK9mNrhumAvaYY3zknsTBkqaOfaAeTUGP5ZRiK1M01Ltut3CWtYxHLd_uSiu8thlPbDjuYgIxC9Ec5EYw3Y0GTXF6XOIIy9kneMn2boqjCOgv9mlh5dkzLzYdlClD9HOuGkwGKL5OJGe-sx-WOS58feoYp8EZAKkxLlWh2jCE64FbRZUuo3b1gYwMlPuH0Ax-NW-xlQoac9E8RtTR64Jg5LCG3ilq7G4gIQNjYAxokhpGvxOXLw",

@@ -3,11 +3,11 @@ from flask import request, _request_ctx_stack, abort
 from functools import wraps
 from jose import jwt
 from urllib.request import urlopen
-from config import AUTH
+from config import DOMAIN, ALG, API_AUDIENCE
 
-AUTH0_DOMAIN = AUTH['DOMAIN']
-ALGORITHMS = AUTH['ALG']
-API_AUDIENCE = AUTH['API_AUDIENCE']
+AUTH0_DOMAIN = DOMAIN
+ALGORITHMS = ALG
+API_AUDIENCE = API_AUDIENCE
 
 
 class AuthError(Exception):
@@ -22,9 +22,6 @@ def get_token_auth_header():
     
     auth = request.headers.get('Authorization', None)
     
-    # print("0000000000000000000000000000000000000000")
-    # print(auth)
-    # print("0000000000000000000000000000000000000000")
 
     if not auth:
         raise AuthError({
@@ -61,16 +58,10 @@ def verify_decode_jwt(token):
     # from Auth0 
     jsonurl = urlopen(f'https://{AUTH0_DOMAIN}/.well-known/jwks.json')
     jwks = json.loads(jsonurl.read())
-    # print('--------------------------------------------------------------------')
-    # print(jwks)
-    # print('--------------------------------------------------------------------')
     
     # from request
     unverified_header = jwt.get_unverified_header(token)
 
-    # print('====================================================================')
-    # print(unverified_header)
-    # print('====================================================================')
 
     rsa_key = {}
 
@@ -100,9 +91,6 @@ def verify_decode_jwt(token):
                 issuer='https://' + AUTH0_DOMAIN + '/'
             )
 
-            # print("********************************************")
-            # print(payload)
-            # print("********************************************")
 
             return payload
 
