@@ -1,1 +1,2 @@
 Flask-Script
+Flask-Migrate
