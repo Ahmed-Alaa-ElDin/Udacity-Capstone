@@ -1,0 +1,3588 @@
+{
+	"info": {
+		"_postman_id": "01ef92e3-7fe3-4646-80bd-88f0e9bb50db",
+		"name": "Casting Website After Deploying",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Executive Producer Tests",
+			"item": [
+				{
+					"name": "Go To Homepage",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200',function(){",
+									"    pm.response.to.have.status(200);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{executive_producer}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Go To Homepage Fail",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 404',function(){",
+									"    pm.response.to.have.status(404);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{executive_producer}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/1",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Go To Movies List",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200',function(){",
+									"    pm.response.to.have.status(200);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{executive_producer}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/api/movies",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Movie Form",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200',function(){",
+									"    pm.response.to.have.status(200);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{executive_producer}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/movies/create",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Movie",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200',function(){",
+									"    pm.response.to.have.status(200);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{executive_producer}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "data",
+								"value": "{\"movie-name\" : 'Mohammed PBUH','movie-date' : '2021-01-02','movie-city' : 'Mecca','movie-genre' : 'Islamic','movie-image' : 'www.google.com',}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "movie-name",
+									"value": "Mohammed PBUH",
+									"type": "text"
+								},
+								{
+									"key": "movie-date",
+									"value": "2021-01-02",
+									"type": "text"
+								},
+								{
+									"key": "movie-city",
+									"value": "Mecca",
+									"type": "text"
+								},
+								{
+									"key": "movie-genre",
+									"value": "Islamic",
+									"type": "text"
+								},
+								{
+									"key": "movie-image",
+									"value": "www.google.com",
+									"type": "text"
+								},
+								{
+									"key": "movie-id",
+									"value": "100",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/api/movies/create",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"movies",
+								"create"
+							]
+						},
+						"description": "All Premissions"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Movie Fail",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 400',function(){",
+									"    pm.response.to.have.status(400);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{executive_producer}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "data",
+								"type": "text",
+								"value": "{\"movie-name\" : 'Mohammed PBUH','movie-date' : '2021-01-02','movie-city' : 'Mecca','movie-genre' : 'Islamic','movie-image' : 'www.google.com',}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "movie-date",
+									"value": "Ahmed",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/api/movies/create",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"movies",
+								"create"
+							]
+						},
+						"description": "All Premissions"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Movie",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200',function(){",
+									"    pm.response.to.have.status(200);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{executive_producer}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\" : \"Mohammed PBUH\",\n    \"release_date\" : \"2019-01-02\",\n    \"city\" : \"Mecca\",\n    \"genra\" : \"Islamic\",\n    \"image_link\" : \"www.facebook.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/api/movies/edit/100",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"movies",
+								"edit",
+								"100"
+							]
+						},
+						"description": "All Premissions"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Movie Fail",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 404',function(){",
+									"    pm.response.to.have.status(404);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{executive_producer}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\" : \"Mohammed PBUH\",\n    \"release_date\" : \"2019-01-02\",\n    \"city\" : \"Mecca\",\n    \"genra\" : \"Islamic\",\n    \"image_link\" : \"www.facebook.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/api/movies/edit/300",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"movies",
+								"edit",
+								"300"
+							]
+						},
+						"description": "All Premissions"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Movie",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200',function(){",
+									"    pm.response.to.have.status(200);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{executive_producer}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "data",
+								"type": "text",
+								"value": "{\"movie-name\" : 'Mohammed PBUH','movie-date' : '2021-01-02','movie-city' : 'Mecca','movie-genre' : 'Islamic','movie-image' : 'www.google.com',}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/api/movies/delete/100",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"movies",
+								"delete",
+								"100"
+							]
+						},
+						"description": "All Premissions"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Movie Fail",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 404',function(){",
+									"    pm.response.to.have.status(404);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{executive_producer}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "data",
+								"type": "text",
+								"value": "{\"movie-name\" : 'Mohammed PBUH','movie-date' : '2021-01-02','movie-city' : 'Mecca','movie-genre' : 'Islamic','movie-image' : 'www.google.com',}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/api/movies/delete/300",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"movies",
+								"delete",
+								"300"
+							]
+						},
+						"description": "All Premissions"
+					},
+					"response": []
+				},
+				{
+					"name": "Go To Actors List Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200',function(){",
+									"    pm.response.to.have.status(200);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{executive_producer}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/api/actors",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Actor Form",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200',function(){",
+									"    pm.response.to.have.status(200);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{executive_producer}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/actors",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Actor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200',function(){",
+									"    pm.response.to.have.status(200);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{executive_producer}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "data",
+								"value": "{\"movie-name\" : 'Mohammed PBUH','movie-date' : '2021-01-02','movie-city' : 'Mecca','movie-genre' : 'Islamic','movie-image' : 'www.google.com',}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "actor-name",
+									"value": "Ali",
+									"type": "text"
+								},
+								{
+									"key": "actor-age",
+									"value": "60",
+									"type": "text"
+								},
+								{
+									"key": "actor-city",
+									"value": "Cairo",
+									"type": "text"
+								},
+								{
+									"key": "actor-genre",
+									"value": "Scientific",
+									"type": "text"
+								},
+								{
+									"key": "actor-image",
+									"value": "www.google.com",
+									"type": "text"
+								},
+								{
+									"key": "actor-id",
+									"value": "100",
+									"type": "text"
+								},
+								{
+									"key": "actor-gender",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "actor-phone",
+									"value": "01111339306",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/api/actors/create",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"actors",
+								"create"
+							]
+						},
+						"description": "All Premissions"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Actor Fail",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 400',function(){",
+									"    pm.response.to.have.status(400);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{executive_producer}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "data",
+								"type": "text",
+								"value": "{\"movie-name\" : 'Mohammed PBUH','movie-date' : '2021-01-02','movie-city' : 'Mecca','movie-genre' : 'Islamic','movie-image' : 'www.google.com',}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "actor-gender",
+									"value": "Male",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/api/actors/create",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"actors",
+								"create"
+							]
+						},
+						"description": "All Premissions"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Actor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200',function(){",
+									"    pm.response.to.have.status(200);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{executive_producer}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "data",
+								"type": "text",
+								"value": "{\"movie-name\" : 'Mohammed PBUH','movie-date' : '2021-01-02','movie-city' : 'Mecca','movie-genre' : 'Islamic','movie-image' : 'www.google.com',}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"Hala Hassan\",\n    \"age\" : 20,\n    \"gender\" : 2,\n    \"phone\" : \"01111339306\",\n    \"genre\" : \"Scientific\",\n    \"city\" : \"Cairo\",\n    \"image\" : \"www.google.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/api/actors/edit/100",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"actors",
+								"edit",
+								"100"
+							]
+						},
+						"description": "All Premissions"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Actor Fail",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 400',function(){",
+									"    pm.response.to.have.status(400);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{executive_producer}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "data",
+								"type": "text",
+								"value": "{\"movie-name\" : 'Mohammed PBUH','movie-date' : '2021-01-02','movie-city' : 'Mecca','movie-genre' : 'Islamic','movie-image' : 'www.google.com',}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    'name' : 'Hala Hassan',\n    'age' : 20,\n    'gender' : 2,\n    'phone' : '01111339306',\n    'genre' : 'Scientific',\n    'city' : 'Cairo',\n    'image' : 'www.google.com'\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/api/actors/edit/300",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"actors",
+								"edit",
+								"300"
+							]
+						},
+						"description": "All Premissions"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Actor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200',function(){",
+									"    pm.response.to.have.status(200);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{executive_producer}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/api/actors/delete/100",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"actors",
+								"delete",
+								"100"
+							]
+						},
+						"description": "All Premissions"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Actor Fail",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 404',function(){",
+									"    pm.response.to.have.status(404);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{executive_producer}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/api/actors/delete/300",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"actors",
+								"delete",
+								"300"
+							]
+						},
+						"description": "All Premissions"
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{executive_producer}}",
+						"type": "string"
+					},
+					{
+						"key": "password",
+						"value": "{{Executive Producer}}",
+						"type": "string"
+					}
+				]
+			}
+		},
+		{
+			"name": "Casting Director Tests",
+			"item": [
+				{
+					"name": "Go To Homepage",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200',function(){",
+									"    pm.response.to.have.status(200);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{casting_director}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Go To Homepage Fail",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 404',function(){",
+									"    pm.response.to.have.status(404);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{casting_director}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/1",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Go To Movies List",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200',function(){",
+									"    pm.response.to.have.status(200);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{casting_director}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/api/movies",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Movie Form",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200',function(){",
+									"    pm.response.to.have.status(200);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{casting_director}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/movies/create",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Movie UnAuth",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 403',function(){",
+									"    pm.response.to.have.status(403);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{casting_director}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "data",
+								"type": "text",
+								"value": "{\"movie-name\" : 'Mohammed PBUH','movie-date' : '2021-01-02','movie-city' : 'Mecca','movie-genre' : 'Islamic','movie-image' : 'www.google.com',}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "movie-name",
+									"value": "Mohammed PBUH",
+									"type": "text"
+								},
+								{
+									"key": "movie-date",
+									"value": "2021-01-02",
+									"type": "text"
+								},
+								{
+									"key": "movie-city",
+									"value": "Mecca",
+									"type": "text"
+								},
+								{
+									"key": "movie-genre",
+									"value": "Islamic",
+									"type": "text"
+								},
+								{
+									"key": "movie-image",
+									"value": "www.google.com",
+									"type": "text"
+								},
+								{
+									"key": "movie-id",
+									"value": "100",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/api/movies/create",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"movies",
+								"create"
+							]
+						},
+						"description": "All Premissions"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Movie For Editing",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200',function(){",
+									"    pm.response.to.have.status(200);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{executive_producer}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "data",
+								"value": "{\"movie-name\" : 'Mohammed PBUH','movie-date' : '2021-01-02','movie-city' : 'Mecca','movie-genre' : 'Islamic','movie-image' : 'www.google.com',}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "movie-name",
+									"value": "Mohammed PBUH",
+									"type": "text"
+								},
+								{
+									"key": "movie-date",
+									"value": "2021-01-02",
+									"type": "text"
+								},
+								{
+									"key": "movie-city",
+									"value": "Mecca",
+									"type": "text"
+								},
+								{
+									"key": "movie-genre",
+									"value": "Islamic",
+									"type": "text"
+								},
+								{
+									"key": "movie-image",
+									"value": "www.google.com",
+									"type": "text"
+								},
+								{
+									"key": "movie-id",
+									"value": "100",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/api/movies/create",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"movies",
+								"create"
+							]
+						},
+						"description": "All Premissions"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Movie Fail",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 403',function(){",
+									"    pm.response.to.have.status(403);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{casting_director}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "data",
+								"type": "text",
+								"value": "{\"movie-name\" : 'Mohammed PBUH','movie-date' : '2021-01-02','movie-city' : 'Mecca','movie-genre' : 'Islamic','movie-image' : 'www.google.com',}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "movie-date",
+									"value": "Ahmed",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/api/movies/create",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"movies",
+								"create"
+							]
+						},
+						"description": "All Premissions"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Movie",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200',function(){",
+									"    pm.response.to.have.status(200);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{casting_director}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\" : \"Mohammed PBUH\",\n    \"release_date\" : \"2019-01-02\",\n    \"city\" : \"Mecca\",\n    \"genra\" : \"Islamic\",\n    \"image_link\" : \"www.facebook.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/api/movies/edit/100",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"movies",
+								"edit",
+								"100"
+							]
+						},
+						"description": "All Premissions"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Movie Fail",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 404',function(){",
+									"    pm.response.to.have.status(404);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{casting_director}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\" : \"Mohammed PBUH\",\n    \"release_date\" : \"2019-01-02\",\n    \"city\" : \"Mecca\",\n    \"genra\" : \"Islamic\",\n    \"image_link\" : \"www.facebook.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/api/movies/edit/300",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"movies",
+								"edit",
+								"300"
+							]
+						},
+						"description": "All Premissions"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Movie UnAuth",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 403',function(){",
+									"    pm.response.to.have.status(403);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{casting_director}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "data",
+								"type": "text",
+								"value": "{\"movie-name\" : 'Mohammed PBUH','movie-date' : '2021-01-02','movie-city' : 'Mecca','movie-genre' : 'Islamic','movie-image' : 'www.google.com',}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/api/movies/delete/100",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"movies",
+								"delete",
+								"100"
+							]
+						},
+						"description": "All Premissions"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Movie By Executive Producer",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200',function(){",
+									"    pm.response.to.have.status(200);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{executive_producer}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "data",
+								"type": "text",
+								"value": "{\"movie-name\" : 'Mohammed PBUH','movie-date' : '2021-01-02','movie-city' : 'Mecca','movie-genre' : 'Islamic','movie-image' : 'www.google.com',}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/api/movies/delete/100",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"movies",
+								"delete",
+								"100"
+							]
+						},
+						"description": "All Premissions"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Movie Fail",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 403',function(){",
+									"    pm.response.to.have.status(403);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{casting_director}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "data",
+								"type": "text",
+								"value": "{\"movie-name\" : 'Mohammed PBUH','movie-date' : '2021-01-02','movie-city' : 'Mecca','movie-genre' : 'Islamic','movie-image' : 'www.google.com',}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/api/movies/delete/300",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"movies",
+								"delete",
+								"300"
+							]
+						},
+						"description": "All Premissions"
+					},
+					"response": []
+				},
+				{
+					"name": "Go To Actors List Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200',function(){",
+									"    pm.response.to.have.status(200);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{casting_director}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/api/actors",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Actor Form",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200',function(){",
+									"    pm.response.to.have.status(200);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{casting_director}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/actors",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Actor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200',function(){",
+									"    pm.response.to.have.status(200);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{casting_director}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "data",
+								"value": "{\"movie-name\" : 'Mohammed PBUH','movie-date' : '2021-01-02','movie-city' : 'Mecca','movie-genre' : 'Islamic','movie-image' : 'www.google.com',}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "actor-name",
+									"value": "Ali",
+									"type": "text"
+								},
+								{
+									"key": "actor-age",
+									"value": "60",
+									"type": "text"
+								},
+								{
+									"key": "actor-city",
+									"value": "Cairo",
+									"type": "text"
+								},
+								{
+									"key": "actor-genre",
+									"value": "Scientific",
+									"type": "text"
+								},
+								{
+									"key": "actor-image",
+									"value": "www.google.com",
+									"type": "text"
+								},
+								{
+									"key": "actor-id",
+									"value": "100",
+									"type": "text"
+								},
+								{
+									"key": "actor-gender",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "actor-phone",
+									"value": "01111339306",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/api/actors/create",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"actors",
+								"create"
+							]
+						},
+						"description": "All Premissions"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Actor Fail",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 400',function(){",
+									"    pm.response.to.have.status(400);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{casting_director}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "data",
+								"type": "text",
+								"value": "{\"movie-name\" : 'Mohammed PBUH','movie-date' : '2021-01-02','movie-city' : 'Mecca','movie-genre' : 'Islamic','movie-image' : 'www.google.com',}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "actor-gender",
+									"value": "Male",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/api/actors/create",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"actors",
+								"create"
+							]
+						},
+						"description": "All Premissions"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Actor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200',function(){",
+									"    pm.response.to.have.status(200);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{casting_director}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "data",
+								"type": "text",
+								"value": "{\"movie-name\" : 'Mohammed PBUH','movie-date' : '2021-01-02','movie-city' : 'Mecca','movie-genre' : 'Islamic','movie-image' : 'www.google.com',}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"Hala Hassan\",\n    \"age\" : 20,\n    \"gender\" : 2,\n    \"phone\" : \"01111339306\",\n    \"genre\" : \"Scientific\",\n    \"city\" : \"Cairo\",\n    \"image\" : \"www.google.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/api/actors/edit/100",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"actors",
+								"edit",
+								"100"
+							]
+						},
+						"description": "All Premissions"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Actor Fail",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 400',function(){",
+									"    pm.response.to.have.status(400);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{casting_director}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "data",
+								"type": "text",
+								"value": "{\"movie-name\" : 'Mohammed PBUH','movie-date' : '2021-01-02','movie-city' : 'Mecca','movie-genre' : 'Islamic','movie-image' : 'www.google.com',}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    'name' : 'Hala Hassan',\n    'age' : 20,\n    'gender' : 2,\n    'phone' : '01111339306',\n    'genre' : 'Scientific',\n    'city' : 'Cairo',\n    'image' : 'www.google.com'\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/api/actors/edit/300",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"actors",
+								"edit",
+								"300"
+							]
+						},
+						"description": "All Premissions"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Actor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200',function(){",
+									"    pm.response.to.have.status(200);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{casting_director}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/api/actors/delete/100",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"actors",
+								"delete",
+								"100"
+							]
+						},
+						"description": "All Premissions"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Actor Fail",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 404',function(){",
+									"    pm.response.to.have.status(404);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{casting_director}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/api/actors/delete/300",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"actors",
+								"delete",
+								"300"
+							]
+						},
+						"description": "All Premissions"
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{executive_producer}}",
+						"type": "string"
+					},
+					{
+						"key": "password",
+						"value": "{{Executive Producer}}",
+						"type": "string"
+					}
+				]
+			}
+		},
+		{
+			"name": "Casting Assistant Tests",
+			"item": [
+				{
+					"name": "Go To Homepage",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200',function(){",
+									"    pm.response.to.have.status(200);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{casting_assistant}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Go To Homepage Fail",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 404',function(){",
+									"    pm.response.to.have.status(404);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{casting_assistant}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/1",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Go To Movies List",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200',function(){",
+									"    pm.response.to.have.status(200);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{casting_assistant}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/api/movies",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Movie Form",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200',function(){",
+									"    pm.response.to.have.status(200);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{casting_assistant}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/movies/create",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Movie UnAuth",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 403',function(){",
+									"    pm.response.to.have.status(403);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{casting_assistant}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "data",
+								"type": "text",
+								"value": "{\"movie-name\" : 'Mohammed PBUH','movie-date' : '2021-01-02','movie-city' : 'Mecca','movie-genre' : 'Islamic','movie-image' : 'www.google.com',}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "movie-name",
+									"value": "Mohammed PBUH",
+									"type": "text"
+								},
+								{
+									"key": "movie-date",
+									"value": "2021-01-02",
+									"type": "text"
+								},
+								{
+									"key": "movie-city",
+									"value": "Mecca",
+									"type": "text"
+								},
+								{
+									"key": "movie-genre",
+									"value": "Islamic",
+									"type": "text"
+								},
+								{
+									"key": "movie-image",
+									"value": "www.google.com",
+									"type": "text"
+								},
+								{
+									"key": "movie-id",
+									"value": "100",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/api/movies/create",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"movies",
+								"create"
+							]
+						},
+						"description": "All Premissions"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Movie Fail",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 403',function(){",
+									"    pm.response.to.have.status(403);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{casting_assistant}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "data",
+								"type": "text",
+								"value": "{\"movie-name\" : 'Mohammed PBUH','movie-date' : '2021-01-02','movie-city' : 'Mecca','movie-genre' : 'Islamic','movie-image' : 'www.google.com',}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "movie-date",
+									"value": "Ahmed",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/api/movies/create",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"movies",
+								"create"
+							]
+						},
+						"description": "All Premissions"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Movie UnAuth",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 403',function(){",
+									"    pm.response.to.have.status(403);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{casting_assistant}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\" : \"Mohammed PBUH\",\n    \"release_date\" : \"2019-01-02\",\n    \"city\" : \"Mecca\",\n    \"genra\" : \"Islamic\",\n    \"image_link\" : \"www.facebook.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/api/movies/edit/100",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"movies",
+								"edit",
+								"100"
+							]
+						},
+						"description": "All Premissions"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Movie Fail",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 403',function(){",
+									"    pm.response.to.have.status(403);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{casting_assistant}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\" : \"Mohammed PBUH\",\n    \"release_date\" : \"2019-01-02\",\n    \"city\" : \"Mecca\",\n    \"genra\" : \"Islamic\",\n    \"image_link\" : \"www.facebook.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/api/movies/edit/300",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"movies",
+								"edit",
+								"300"
+							]
+						},
+						"description": "All Premissions"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Movie UnAuth",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 403',function(){",
+									"    pm.response.to.have.status(403);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{casting_assistant}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "data",
+								"type": "text",
+								"value": "{\"movie-name\" : 'Mohammed PBUH','movie-date' : '2021-01-02','movie-city' : 'Mecca','movie-genre' : 'Islamic','movie-image' : 'www.google.com',}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/api/movies/delete/100",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"movies",
+								"delete",
+								"100"
+							]
+						},
+						"description": "All Premissions"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Movie Fail",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 403',function(){",
+									"    pm.response.to.have.status(403);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{casting_assistant}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "data",
+								"type": "text",
+								"value": "{\"movie-name\" : 'Mohammed PBUH','movie-date' : '2021-01-02','movie-city' : 'Mecca','movie-genre' : 'Islamic','movie-image' : 'www.google.com',}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/api/movies/delete/300",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"movies",
+								"delete",
+								"300"
+							]
+						},
+						"description": "All Premissions"
+					},
+					"response": []
+				},
+				{
+					"name": "Go To Actors List Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200',function(){",
+									"    pm.response.to.have.status(200);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{casting_assistant}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/api/actors",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Actor Form",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200',function(){",
+									"    pm.response.to.have.status(200);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{casting_assistant}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/actors",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Actor UnAuth",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 403',function(){",
+									"    pm.response.to.have.status(403);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{casting_assistant}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "data",
+								"type": "text",
+								"value": "{\"movie-name\" : 'Mohammed PBUH','movie-date' : '2021-01-02','movie-city' : 'Mecca','movie-genre' : 'Islamic','movie-image' : 'www.google.com',}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "actor-name",
+									"value": "Ali",
+									"type": "text"
+								},
+								{
+									"key": "actor-age",
+									"value": "60",
+									"type": "text"
+								},
+								{
+									"key": "actor-city",
+									"value": "Cairo",
+									"type": "text"
+								},
+								{
+									"key": "actor-genre",
+									"value": "Scientific",
+									"type": "text"
+								},
+								{
+									"key": "actor-image",
+									"value": "www.google.com",
+									"type": "text"
+								},
+								{
+									"key": "actor-id",
+									"value": "100",
+									"type": "text"
+								},
+								{
+									"key": "actor-gender",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "actor-phone",
+									"value": "01111339306",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/api/actors/create",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"actors",
+								"create"
+							]
+						},
+						"description": "All Premissions"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Actor Fail",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 403',function(){",
+									"    pm.response.to.have.status(403);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{casting_assistant}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "data",
+								"type": "text",
+								"value": "{\"movie-name\" : 'Mohammed PBUH','movie-date' : '2021-01-02','movie-city' : 'Mecca','movie-genre' : 'Islamic','movie-image' : 'www.google.com',}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "actor-gender",
+									"value": "Male",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/api/actors/create",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"actors",
+								"create"
+							]
+						},
+						"description": "All Premissions"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Actor UnAuth",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 403',function(){",
+									"    pm.response.to.have.status(403);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{casting_assistant}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "data",
+								"type": "text",
+								"value": "{\"movie-name\" : 'Mohammed PBUH','movie-date' : '2021-01-02','movie-city' : 'Mecca','movie-genre' : 'Islamic','movie-image' : 'www.google.com',}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"Hala Hassan\",\n    \"age\" : 20,\n    \"gender\" : 2,\n    \"phone\" : \"01111339306\",\n    \"genre\" : \"Scientific\",\n    \"city\" : \"Cairo\",\n    \"image\" : \"www.google.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/api/actors/edit/100",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"actors",
+								"edit",
+								"100"
+							]
+						},
+						"description": "All Premissions"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Actor Fail",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 403',function(){",
+									"    pm.response.to.have.status(403);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{casting_assistant}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "data",
+								"type": "text",
+								"value": "{\"movie-name\" : 'Mohammed PBUH','movie-date' : '2021-01-02','movie-city' : 'Mecca','movie-genre' : 'Islamic','movie-image' : 'www.google.com',}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    'name' : 'Hala Hassan',\n    'age' : 20,\n    'gender' : 2,\n    'phone' : '01111339306',\n    'genre' : 'Scientific',\n    'city' : 'Cairo',\n    'image' : 'www.google.com'\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/api/actors/edit/300",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"actors",
+								"edit",
+								"300"
+							]
+						},
+						"description": "All Premissions"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Actor UnAuth",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 403',function(){",
+									"    pm.response.to.have.status(403);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{casting_assistant}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/api/actors/delete/100",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"actors",
+								"delete",
+								"100"
+							]
+						},
+						"description": "All Premissions"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Actor Fail",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 403',function(){",
+									"    pm.response.to.have.status(403);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{casting_assistant}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "https://casting-team.herokuapp.com/api/actors/delete/300",
+							"protocol": "https",
+							"host": [
+								"casting-team",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"actors",
+								"delete",
+								"300"
+							]
+						},
+						"description": "All Premissions"
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{executive_producer}}",
+						"type": "string"
+					},
+					{
+						"key": "password",
+						"value": "{{Executive Producer}}",
+						"type": "string"
+					}
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "Executive Producer",
+			"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkdqdHBLZVpXUDZBd25zZGo0U0VPRCJ9.eyJpc3MiOiJodHRwczovL2Rldi03Z28xYmU3aS51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWZhYzQ1YTAyODg3MzQwMDc1ZjAxOGFkIiwiYXVkIjoiY2FzdGluZyIsImlhdCI6MTYxMDIzMjY2NiwiZXhwIjoxNjEwMjM5ODY2LCJhenAiOiJrNm5kNFVVdGo5empoWmxYMnlXWmk3SG5DcWVjNmV1NiIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOmFjdG9yIiwiZGVsZXRlOm1vdmllIiwiZ2V0OmFjdG9ycyIsImdldDptb3ZpZXMiLCJwYXRjaDphY3RvciIsInBhdGNoOm1vdmllIiwicG9zdDphY3RvciIsInBvc3Q6bW92aWUiXX0.MhTf_6bRaMz4o-j213T8HgWjTVfSOn_H2yg408capLrtFukm1O5IHNGT0XJriLWcVrfrEfNM7LJpIf5MFYYl71pbqSNI3kB30Aix-TlnEMfc3QMNeRABFAvxF3Ulk6CyRQqCA1dFDGIjvhmkLJzQAZ5H4QKYV6HtSVEsgll2Hn0oWdrWiR3lz2aoGbrxkk9okBU5-dfdykUTgsYPDEg_2ITsDQkRfYtY2_-maP9iCu8iCHK6JDQgnhCN8cyF6jFnEw_liWkpRtX0kMN-U-KVgSP4xajG0gF-d_qjQbRPwYjcGe7Lga6xl7Kj-o8oz7ovpXGu_EmTkH_1sSDfj0jRQQ"
+		}
+	]
+}

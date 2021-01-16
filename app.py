@@ -21,6 +21,7 @@ def create_app(test_config=None):
     app = Flask(__name__)
     setup_db(app)
     cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
+    migrate = Migrate(app,db)
 
     # GO TO HOME PAGE
     @app.route('/', methods=['GET'])
